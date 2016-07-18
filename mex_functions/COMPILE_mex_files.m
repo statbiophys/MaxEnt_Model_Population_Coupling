@@ -1,4 +1,4 @@
-
+%% This script is used to compile the following .mex files in Linux. Compilation in Windows OS might be slightly different.
 %% BEWARE : must be in the folder of .mex files to run the following :
 
 mex stats_Psigma_PK__Pkalpha.c fill_zk_partial__order1.c fill_zk_partial__order2.c get_zk_partial.c -lm
