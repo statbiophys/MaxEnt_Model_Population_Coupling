@@ -85,8 +85,23 @@ toc
 % prediction and Z
 [ P0_pred_comp, Pk_l_pred_comp, Pki_m_pred_comp, Z_comp ] = prediction_PsigmaK( h_comp );
 
+
+%% Tuning curve of neuron i in K_\i
+% in the 4 following variables we have Pi_condKo(k + 1, i) = P( \sigma_i = 1 | K_\i = k )      (Note the "+1")
+
+% empirical tuning curve
+[Pi_condKo_emp] = prediction_from_Kother_emp( spikewords, lambda_reg, Kmax_add);
+
+% model prediction for tuning curve
+Pi_condKo_minim = prediction_from_Kothers( exp(h_minim) );
+Pi_condKo_lin = prediction_from_Kothers( exp(h_lin) );
+Pi_condKo_comp = prediction_from_Kothers( exp(h_comp) );
+
+
 %% pairwise covariance prediction 
 
 [Cov_prediction_minim] = covariance_PsigmaK(h_minim, Z_minim);
 [Cov_prediction_lin] = covariance_PsigmaK(h_lin, Z_lin);
 [Cov_prediction_comp] = covariance_PsigmaK(h_comp, Z_comp);
+
+
